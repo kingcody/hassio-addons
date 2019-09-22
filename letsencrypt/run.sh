@@ -26,7 +26,7 @@ if [ ! -d "$CERT_DIR/live" ]; then
     echo "$DOMAINS" > /data/domains.gen
 
     if [ -f /dns-rfc2136.ini ]; then
-        certbot certonly --non-interactive --email "$EMAIL" --agree-tos --config-dir "$CERT_DIR" --dns-rfc2136 --dns-rfc2136-credentials /dns-rfc2136 "${DOMAIN_ARR[@]}"
+        certbot certonly --non-interactive --email "$EMAIL" --agree-tos --config-dir "$CERT_DIR" --dns-rfc2136 --dns-rfc2136-credentials /dns-rfc2136.ini "${DOMAIN_ARR[@]}"
     else
         certbot certonly --non-interactive --standalone --email "$EMAIL" --agree-tos --config-dir "$CERT_DIR" --work-dir "$WORK_DIR" --preferred-challenges "http" "${DOMAIN_ARR[@]}"
     fi
