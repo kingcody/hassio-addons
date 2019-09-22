@@ -1,0 +1,28 @@
+{
+  "name": "Let's Encrypt",
+  "version": "3.0",
+  "slug": "letsencrypt",
+  "description": "Manage certificate from Let's Encrypt",
+  "url": "https://home-assistant.io/addons/lets_encrypt/",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "once",
+  "boot": "manual",
+  "ports": {
+    "80/tcp": 80
+   },
+  "map": ["ssl:rw"],
+  "options": {
+    "email": null,
+    "domains": [null],
+    "certfile": "fullchain.pem",
+    "keyfile": "privkey.pem"
+  },
+  "schema": {
+    "email": "email",
+    "domains": ["str"],
+    "certfile": "str",
+    "keyfile": "str",
+    "dns_rfc2136": "str?"
+  },
+  "image": "kingcody/hassio-{arch}-addon-letsencrypt"
+}
